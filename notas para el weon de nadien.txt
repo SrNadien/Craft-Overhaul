@@ -1,0 +1,94 @@
+
+        // ==========================================
+        // AÑADE MÁS RECETAS AQUÍ SIGUIENDO LOS EJEMPLOS
+        // ==========================================
+        
+        /*
+         * GUÍA RÁPIDA PARA AGREGAR MÁS RECETAS:
+         * 
+         * 1. RECETA SHAPED 3x3 (con forma específica):
+         * 
+         * addShapedRecipe3x3("nombre_receta",
+         *     new ItemStack(Items.ITEM_RESULTADO, cantidad),
+         *     "ABC",  // Fila 1
+         *     "DEF",  // Fila 2
+         *     "GHI",  // Fila 3
+         *     Map.of(
+         *         'A', Ingredient.of(Items.ITEM1),
+         *         'B', Ingredient.of(Items.ITEM2),
+         *         'C', Ingredient.of(Items.ITEM3)
+         *         // ... etc
+         *     )
+         * );
+         * 
+         * Usa ' ' (espacio) para casillas vacías.
+         * 
+         * 
+         * 2. RECETA SHAPED 2x2:
+         * 
+         * addShapedRecipe2x2("nombre_receta",
+         *     new ItemStack(Items.ITEM_RESULTADO, cantidad),
+         *     "AB",
+         *     "CD",
+         *     Map.of(
+         *         'A', Ingredient.of(Items.ITEM1),
+         *         'B', Ingredient.of(Items.ITEM2)
+         *     )
+         * );
+         * 
+         * 
+         * 3. STONECUTTING (cortador de piedra):
+         * 
+         * addStonecuttingRecipe("nombre_receta",
+         *     Ingredient.of(Items.ITEM_ENTRADA),
+         *     new ItemStack(Items.ITEM_SALIDA, cantidad)
+         * );
+         * 
+         * 
+         * 4. BLASTING (alto horno):
+         * 
+         * addBlastingRecipe("nombre_receta",
+         *     Ingredient.of(Items.ITEM_ENTRADA),
+         *     new ItemStack(Items.ITEM_SALIDA),
+         *     1.0f,    // experiencia
+         *     100      // tiempo (100 = 5 segundos)
+         * );
+         * 
+         * 
+         * 5. SMOKING (ahumador):
+         * 
+         * addSmokingRecipe("nombre_receta",
+         *     Ingredient.of(Items.ITEM_ENTRADA),
+         *     new ItemStack(Items.ITEM_SALIDA),
+         *     1.0f,
+         *     100
+         * );
+         * 
+         * 
+         * 6. CAMPFIRE (fogata):
+         * 
+         * addCampfireRecipe("nombre_receta",
+         *     Ingredient.of(Items.ITEM_ENTRADA),
+         *     new ItemStack(Items.ITEM_SALIDA),
+         *     1.0f,
+         *     600      // las fogatas son más lentas
+         * );
+         * 
+         * 
+         * 7. SMELTING (horno normal):
+         * 
+         * addSmeltingRecipe("nombre_receta",
+         *     Ingredient.of(Items.ITEM_ENTRADA),
+         *     new ItemStack(Items.ITEM_SALIDA),
+         *     0.5f,
+         *     200
+         * );
+         * 
+         * 
+         * NOTAS:
+         * - Los tiempos están en ticks (20 ticks = 1 segundo)
+         * - 100 ticks = 5 segundos (para horno/blasting/smoking)
+         * - 600 ticks = 30 segundos (para campfire)
+         * - Usa Items.NOMBRE_ITEM para los items de vanilla
+         * - Cada receta necesita un nombre único
+         */

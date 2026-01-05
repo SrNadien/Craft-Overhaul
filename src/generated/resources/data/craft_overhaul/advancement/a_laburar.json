@@ -1,0 +1,29 @@
+{
+  "parent": "craft_overhaul:root",
+  "criteria": {
+    "has_crafting_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crafting_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Trabaja Vago",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:crafting_table"
+    },
+    "title": "A laburar  -_-"
+  },
+  "requirements": [
+    [
+      "has_crafting_table"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
