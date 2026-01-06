@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:lime_carpet"
+    },
+    "b": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "aaa",
+    "bbb"
+  ],
+  "result": {
+    "item": "minecraft:lime_bed"
+  },
+  "show_notification": true
+}

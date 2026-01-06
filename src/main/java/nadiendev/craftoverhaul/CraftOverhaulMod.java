@@ -3,26 +3,24 @@ package nadiendev.craftoverhaul;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.neoforged.neoforge.network.handling.IPayloadHandler;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.event.tick.ServerTickEvent;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.fml.util.thread.SidedThreadGroups;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 import net.minecraft.util.Tuple;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.core.HolderLookup;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import nadiendev.craftoverhaul.datagen.ModRecipeProvider;
+import nadiendev.craftoverhaul.datagen.ModAdvancementsProvider;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CompletableFuture;
@@ -31,108 +29,102 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.function.Supplier;
+import java.util.function.Function;
+import java.util.function.BiConsumer;
 
-@Mod("craft_overhaul")
+@Mod(CraftOverhaulMod.MODID)
 public class CraftOverhaulMod {
 	public static final Logger LOGGER = LogManager.getLogger(CraftOverhaulMod.class);
+	
 	public static final String MODID = "craft_overhaul";
-
-	public CraftOverhaulMod(IEventBus modEventBus) {
+	
+	public CraftOverhaulMod(FMLJavaModLoadingContext context) {
 		LOGGER.info("Initializing Craft Overhaul Mod");
 		LOGGER.info("Recipes will be registered via Data Generation");
 		
-		NeoForge.EVENT_BUS.register(this);
+		// Obtener el event bus del mod desde el contexto
+		IEventBus modEventBus = context.getModEventBus();
 		
-		// Registrar el listener para networking
-		modEventBus.addListener(this::registerNetworking);
-		
-		// Registrar el listener para data generation
+		// Registrar el evento de data generation
 		modEventBus.addListener(this::gatherData);
+		
+		// Registrar eventos del forge bus
+		MinecraftForge.EVENT_BUS.register(this);
 		
 		LOGGER.info("Craft Overhaul Mod initialized successfully");
 	}
 
-	/**
-	 * Evento para generar datos (recetas, loot tables, etc.)
-	 * NO lleva @SubscribeEvent porque ya está registrado con modEventBus.addListener
-	 */
-	public void gatherData(GatherDataEvent event) {
+	// ============================================
+	// DATA GENERATION
+	// ============================================
+	
+	private void gatherData(GatherDataEvent event) {
+		LOGGER.info("=== DATAGEN EVENT TRIGGERED ===");
+		
 		DataGenerator generator = event.getGenerator();
 		PackOutput output = generator.getPackOutput();
 		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-		net.neoforged.neoforge.common.data.ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-		// Registrar el proveedor de recetas
-		generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider));
+		LOGGER.info("Registering Recipe Provider...");
+		generator.addProvider(event.includeServer(), new ModRecipeProvider(output));
 		
-		// Registrar el proveedor de logros
+		LOGGER.info("Registering Advancement Provider...");
 		generator.addProvider(event.includeServer(), 
-			new net.neoforged.neoforge.common.data.AdvancementProvider(
-				output, 
-				lookupProvider,
-				existingFileHelper,
-				java.util.List.of(new nadiendev.craftoverhaul.datagen.ModAdvancementsProvider())
-			)
+			new ModAdvancementsProvider(output, lookupProvider, existingFileHelper)
 		);
-		
-		LOGGER.info("Data generators registered successfully");
+
+		LOGGER.info("=== ALL DATA PROVIDERS REGISTERED ===");
 	}
 
 	// ============================================
-	// NETWORKING (código original)
+	// NETWORKING 
 	// ============================================
 	
 	private static boolean networkingRegistered = false;
-	private static final Map<CustomPacketPayload.Type<?>, NetworkMessage<?>> MESSAGES = new HashMap<>();
+	private static int messageID = 0;
+	private static final Map<ResourceLocation, NetworkMessage<?>> MESSAGES = new HashMap<>();
 
-	private record NetworkMessage<T extends CustomPacketPayload>(
-		StreamCodec<? extends FriendlyByteBuf, T> reader, 
-		IPayloadHandler<T> handler
+	private record NetworkMessage<T>(
+		BiConsumer<T, FriendlyByteBuf> writer,
+		Function<FriendlyByteBuf, T> reader,
+		BiConsumer<T, Supplier<net.minecraftforge.network.NetworkEvent.Context>> handler
 	) {}
 
-	public static <T extends CustomPacketPayload> void addNetworkMessage(
-		CustomPacketPayload.Type<T> id, 
-		StreamCodec<? extends FriendlyByteBuf, T> reader, 
-		IPayloadHandler<T> handler
+	public static <T> void addNetworkMessage(
+		Class<T> messageClass,
+		BiConsumer<T, FriendlyByteBuf> encoder,
+		Function<FriendlyByteBuf, T> decoder,
+		BiConsumer<T, Supplier<net.minecraftforge.network.NetworkEvent.Context>> messageConsumer
 	) {
 		if (networkingRegistered)
 			throw new IllegalStateException("Cannot register new network messages after networking has been registered");
-		MESSAGES.put(id, new NetworkMessage<>(reader, handler));
-	}
-
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	private void registerNetworking(final RegisterPayloadHandlersEvent event) {
-		final PayloadRegistrar registrar = event.registrar(MODID);
-		MESSAGES.forEach((id, networkMessage) -> 
-			registrar.playBidirectional(
-				id, 
-				((NetworkMessage) networkMessage).reader(), 
-				((NetworkMessage) networkMessage).handler()
-			)
-		);
-		networkingRegistered = true;
+		MESSAGES.put(ResourceLocation.fromNamespaceAndPath(MODID, messageClass.getSimpleName().toLowerCase()), 
+			new NetworkMessage<>(encoder, decoder, messageConsumer));
 	}
 
 	// ============================================
-	// SERVER TICK (código original)
+	// SERVER TICK
 	// ============================================
 	
 	private static final Collection<Tuple<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
 
 	public static void queueServerWork(int tick, Runnable action) {
-		if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
-			workQueue.add(new Tuple<>(action, tick));
+		workQueue.add(new Tuple<>(action, tick));
 	}
 
 	@SubscribeEvent
-	public void tick(ServerTickEvent.Post event) {
-		List<Tuple<Runnable, Integer>> actions = new ArrayList<>();
-		workQueue.forEach(work -> {
-			work.setB(work.getB() - 1);
-			if (work.getB() == 0)
-				actions.add(work);
-		});
-		actions.forEach(e -> e.getA().run());
-		workQueue.removeAll(actions);
+	public void tick(TickEvent.ServerTickEvent event) {
+		if (event.phase == TickEvent.Phase.END) {
+			List<Tuple<Runnable, Integer>> actions = new ArrayList<>();
+			workQueue.forEach(work -> {
+				work.setB(work.getB() - 1);
+				if (work.getB() == 0)
+					actions.add(work);
+			});
+			actions.forEach(e -> e.getA().run());
+			workQueue.removeAll(actions);
+		}
 	}
 }

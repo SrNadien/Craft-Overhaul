@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:cobweb"
+    }
+  },
+  "pattern": [
+    "   ",
+    " a ",
+    "   "
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:string"
+  },
+  "show_notification": true
+}

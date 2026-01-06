@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:chiseled_stone_bricks"
+    },
+    "b": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "result": {
+    "item": "minecraft:lodestone"
+  },
+  "show_notification": true
+}

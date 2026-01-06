@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "a": {
+      "item": "minecraft:obsidian"
+    },
+    "o": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    " o ",
+    "oao",
+    " o "
+  ],
+  "result": {
+    "item": "minecraft:crying_obsidian"
+  },
+  "show_notification": true
+}

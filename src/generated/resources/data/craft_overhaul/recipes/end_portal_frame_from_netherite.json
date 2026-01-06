@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "a": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "b": {
+      "item": "minecraft:diamond_block"
+    },
+    "c": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    "aaa",
+    "bcb",
+    "bbb"
+  ],
+  "result": {
+    "item": "minecraft:end_portal_frame"
+  },
+  "show_notification": true
+}
