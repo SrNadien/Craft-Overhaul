@@ -33,7 +33,11 @@ public class ModAdvancementsProvider implements AdvancementProvider.AdvancementG
                 false  // hidden
             )
             .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
+<<<<<<< Updated upstream
             .save(saver, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "root").toString());
+=======
+            .save(saver, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "six_seven").toString());
+>>>>>>> Stashed changes
 
         // Logro 1 - "A laburar -_-"
         Advancement.Builder.advancement()

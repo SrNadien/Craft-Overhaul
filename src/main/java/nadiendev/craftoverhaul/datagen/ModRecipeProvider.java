@@ -188,7 +188,11 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('a', Items.GOLD_BLOCK)
             .define('b', Items.NETHERITE_SCRAP)
             .unlockedBy("has_netherite_scrap", has(Items.NETHERITE_SCRAP))
+<<<<<<< Updated upstream
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "netherite_ingot_from_scrap_and_gold"));
+=======
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "netherite_block_recipeuwu"));
+>>>>>>> Stashed changes
 
         // Mejora de herrería de netherita
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, 4)
@@ -289,6 +293,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_string", has(Items.STRING))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "cobweb_from_string"));
 
+<<<<<<< Updated upstream
         // Palos desde troncos
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 16)
             .requires(ItemTags.LOGS)
@@ -307,7 +312,34 @@ public class ModRecipeProvider extends RecipeProvider {
             .requires(Items.COBWEB)
             .unlockedBy("has_cobweb", has(Items.COBWEB))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_cobweb"));
+=======
+       // Palos desde troncos
+ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICK, 16)
+    .pattern("a  ")
+    .pattern("a  ")
+    .pattern("   ")
+    .define('a', ItemTags.LOGS)
+    .unlockedBy("has_logs", has(ItemTags.LOGS))
+    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "stick_from_logs"));
 
+// Hilo desde lana
+ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STRING, 16)
+    .pattern("   ")
+    .pattern(" a ")
+    .pattern("   ")
+    .define('a', ItemTags.WOOL)
+    .unlockedBy("has_wool", has(ItemTags.WOOL))
+    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_wool"));
+>>>>>>> Stashed changes
+
+      // Hilo desde telaraña
+     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STRING, 9)
+       .pattern("   ")
+       .pattern(" a ")
+       .pattern("   ")
+       .define('a', Items.COBWEB)
+       .unlockedBy("has_cobweb", has(Items.COBWEB))
+       .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_cobweb_shaped"));
         // Semillas de cacao
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.COCOA_BEANS, 3)
             .requires(Items.INK_SAC)
@@ -325,5 +357,45 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('b', Items.NETHERITE_SCRAP)
             .unlockedBy("has_netherite_scrap", has(Items.NETHERITE_SCRAP))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "heavy_core"));
+<<<<<<< Updated upstream
+=======
+        // campana crafteable 
+         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BELL, 1)
+         .pattern("ccc")
+         .pattern("bab")
+         .pattern("b b")
+         .define('a', Items.GOLD_BLOCK)
+         .define('b', Items.STONE)
+         .define('c', ItemTags.LOGS)
+         .unlockedBy("has_gold_block", has(Items.GOLD_BLOCK))
+         .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "bell_recipe"));
+
+// obsidiana llorosa crafteo crying_obsidian craftable
+ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.CRYING_OBSIDIAN, 1)
+    .pattern(" o ")
+    .pattern("oao")
+    .pattern(" o ")
+    .define('a', Items.OBSIDIAN)
+    .define('o', Items.WATER_BUCKET)
+    .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET))
+    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "crying_obsidian_recipe"));
+
+// totem de inmortalidad crafteable
+// patron de receta para que la extendion de visual studio code la autocomple con tabulador
+//   [aba] a: esmeralda c:bloque de oro b:lingote de oro
+//   [bcb]
+//   [ b ]
+ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TOTEM_OF_UNDYING, 1)
+    .pattern("aba")
+    .pattern("bcb")
+    .pattern(" b ")
+    .define('a', Items.EMERALD)
+    .define('b', Items.GOLD_INGOT)
+    .define('c', Items.GOLD_BLOCK)
+    .unlockedBy("has_emerald", has(Items.EMERALD))
+    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "totem_of_undying_recipe"));
+        
+    
+>>>>>>> Stashed changes
     }
 }

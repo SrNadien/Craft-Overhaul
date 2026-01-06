@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "parent": "craft_overhaul:root",
+=======
+  "parent": "craft_overhaul:six_seven",
+>>>>>>> Stashed changes
   "criteria": {
     "has_crafting_table": {
       "conditions": {

@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
 // 1.21.1	2026-01-05T19:28:09.5089195	Advancements
 470e5028351e58d36bd644c72b63bf60959cb57d data/craft_overhaul/advancement/a_laburar.json
 f9ea061861926db80013e93ded6fb7a0313544c0 data/craft_overhaul/advancement/root.json
+=======
+// 1.21.1	2026-01-06T15:10:20.428112	Advancements
+d0afab26e69a754d3c2b60b3097e240dcfbeb84a data/craft_overhaul/advancement/a_laburar.json
+f9ea061861926db80013e93ded6fb7a0313544c0 data/craft_overhaul/advancement/six_seven.json
+>>>>>>> Stashed changes
