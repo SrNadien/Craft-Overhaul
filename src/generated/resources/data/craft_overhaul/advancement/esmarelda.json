@@ -1,11 +1,11 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "has_emerald": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:crafting_table"
+            "items": "minecraft:emerald"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.esmarelda.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:crafting_table"
+      "id": "minecraft:emerald"
     },
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.esmarelda.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "has_emerald"
     ]
   ],
   "sends_telemetry_event": true

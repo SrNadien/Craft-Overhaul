@@ -1,15 +1,4 @@
 {
-<<<<<<< Updated upstream
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
-    {
-      "tag": "minecraft:wool"
-    }
-  ],
-  "result": {
-    "count": 4,
-=======
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
@@ -24,7 +13,6 @@
   ],
   "result": {
     "count": 16,
->>>>>>> Stashed changes
     "id": "minecraft:string"
   }
 }

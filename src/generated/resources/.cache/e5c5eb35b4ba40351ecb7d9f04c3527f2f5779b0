@@ -1,9 +1,10 @@
-<<<<<<< Updated upstream
-// 1.21.1	2026-01-05T19:28:09.5089195	Advancements
-470e5028351e58d36bd644c72b63bf60959cb57d data/craft_overhaul/advancement/a_laburar.json
-f9ea061861926db80013e93ded6fb7a0313544c0 data/craft_overhaul/advancement/root.json
-=======
-// 1.21.1	2026-01-06T15:10:20.428112	Advancements
-d0afab26e69a754d3c2b60b3097e240dcfbeb84a data/craft_overhaul/advancement/a_laburar.json
-f9ea061861926db80013e93ded6fb7a0313544c0 data/craft_overhaul/advancement/six_seven.json
->>>>>>> Stashed changes
+// 1.21.1	2026-01-07T17:08:09.8786391	Advancements
+7253d25d820ac796e1c0bcea395bd218ba9b604e data/craft_overhaul/advancement/alto_asado.json
+8bd7eb7e7b73a7997fcab4a6b922c2bdaec23480 data/craft_overhaul/advancement/alto_guiso.json
+f51bbaa64ac62542e82dd967a1bf6c04ed343804 data/craft_overhaul/advancement/a_laburar.json
+e785af73ada1713601f211d3ef07f53641590b7c data/craft_overhaul/advancement/diamante_para_ti.json
+40bba723d961bc6072dbdaf2bed3ba3c363fe870 data/craft_overhaul/advancement/esmarelda.json
+b40f8ff5f51d310dd024912db79ae15d7c8c1b6b data/craft_overhaul/advancement/espanolito.json
+164203b51acd6d810dfe8acea3673a1acc8eefd4 data/craft_overhaul/advancement/peluche.json
+c85f47a93677d614319d3d46d4537c30969eb059 data/craft_overhaul/advancement/preston.json
+ef4dab1cd9222319d158ae9bb66f9d11b873c721 data/craft_overhaul/advancement/six_seven.json

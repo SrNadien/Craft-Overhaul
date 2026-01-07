@@ -6,12 +6,16 @@
   },
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
-    "description": "six seven six seven",
+    "description": {
+      "translate": "advancement.craftoverhaul.six_seven.description"
+    },
     "icon": {
       "count": 1,
-      "id": "minecraft:nether_star"
+      "id": "minecraft:bedrock"
     },
-    "title": "Six Seven"
+    "title": {
+      "translate": "advancement.craftoverhaul.six_seven.title"
+    }
   },
   "requirements": [
     [

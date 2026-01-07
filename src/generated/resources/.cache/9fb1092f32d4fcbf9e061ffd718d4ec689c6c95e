@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
-// 1.21.1	2026-01-05T19:28:09.4537527	Recipes
-=======
 // 1.21.1	2026-01-06T15:10:20.3717353	Recipes
 f9a2e364fdad708db47d7f89d1f00f0debe495ed data/craft_overhaul/recipe/bell_recipe.json
->>>>>>> Stashed changes
 89b74e6a6b280b2540d0a482846507fb5ad6e166 data/craft_overhaul/recipe/blaze_powder_from_blaze_rod.json
 08b0db53e82b9df5d2b2fa136f86c486cdb389ea data/craft_overhaul/recipe/blaze_powder_from_eye_of_ender.json
 c872c2df46a15a2fb742f496f4031a87ed233ff7 data/craft_overhaul/recipe/bricks_from_brick_block.json
@@ -16,10 +12,7 @@ dddcc20b870978931869b6dd27f62995c212c4ef data/craft_overhaul/recipe/chest_from_l
 66157bebde6d721eda26c7fa5c2ef411abb73e0c data/craft_overhaul/recipe/clay_from_clay_block.json
 c851aa9ca80ef50b20c7e062b3d3c0909e79d1e7 data/craft_overhaul/recipe/cobweb_from_string.json
 0a0dc283917626225a2c69af5bf6d1f9072a627a data/craft_overhaul/recipe/cocoa_beans_from_dyes.json
-<<<<<<< Updated upstream
-=======
 d7b1558e802d32adfbdfc3e70d34a9317c46e73c data/craft_overhaul/recipe/crying_obsidian_recipe.json
->>>>>>> Stashed changes
 880868b36f4cd0188c82490fb63b9e8221b1e4aa data/craft_overhaul/recipe/elytra_from_diamonds_phantom_membrane_and_nether_star.json
 65448cd8e976ff1b9b314a3effa1039c222f6eef data/craft_overhaul/recipe/enchanted_golden_apple_from_gold_blocks.json
 8aa7cd85a19c960cc755a8e2deba6e4b0e90a817 data/craft_overhaul/recipe/ender_pearl_from_eye_of_ender_smelting.json
@@ -31,14 +24,6 @@ c4ff31967c3eefd9075c79fd2aacdd6dbc3916fa data/craft_overhaul/recipe/leather_from
 9410841883be7331c27d2f2f639ced6cdf226897 data/craft_overhaul/recipe/leather_from_rotten_flesh_smoking.json
 cd75d1ecc901c6a1cf04bb9d0bc4c0684a9a55e6 data/craft_overhaul/recipe/magnetite_balanced.json
 49a1a8c6cb6d66d82737b77344f9a1489e120984 data/craft_overhaul/recipe/mob_spawner_from_nether_star_and_chain.json
-<<<<<<< Updated upstream
-0d07a6cb0b34caa49603591c5db1aa65dc8d7b3f data/craft_overhaul/recipe/netherite_ingot_from_scrap_and_gold.json
-56e4ba146086baf30bb80d3badd354a69d0c6526 data/craft_overhaul/recipe/saddle_from_leather_and_iron.json
-e34515f71170f7b9efb01e0b3c05fd90f69e61fe data/craft_overhaul/recipe/smithing_netherite_upgrade.json
-46727a26b46c4a54d33cc6dae319b4dce4f118b4 data/craft_overhaul/recipe/stick_from_logs.json
-bcea06560d76b9b7380a8026e5c8740d05ba9bba data/craft_overhaul/recipe/string_from_cobweb.json
-df35d6e2bb36d397b2cfa0dc25bbc0f679f8266a data/craft_overhaul/recipe/string_from_wool.json
-=======
 c192c5f5347ae6cc7938051254344118db4721da data/craft_overhaul/recipe/netherite_block_recipeuwu.json
 56e4ba146086baf30bb80d3badd354a69d0c6526 data/craft_overhaul/recipe/saddle_from_leather_and_iron.json
 e34515f71170f7b9efb01e0b3c05fd90f69e61fe data/craft_overhaul/recipe/smithing_netherite_upgrade.json
@@ -46,4 +31,3 @@ f6768d1a01a1e7542e362f50fd405f41fcec03a7 data/craft_overhaul/recipe/stick_from_l
 2ff4994f0e9179f919362a9d76a313ed0c3e3692 data/craft_overhaul/recipe/string_from_cobweb_shaped.json
 661d002f97f5b6683d0b326ffdb0f63bed2eaac0 data/craft_overhaul/recipe/string_from_wool.json
 e05adffb3f72002519efc82ff5b722afafbe2fd0 data/craft_overhaul/recipe/totem_of_undying_recipe.json
->>>>>>> Stashed changes

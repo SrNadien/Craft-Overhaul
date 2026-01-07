@@ -1,15 +1,4 @@
 {
-<<<<<<< Updated upstream
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
-    {
-      "tag": "minecraft:logs"
-    },
-    {
-      "tag": "minecraft:logs"
-    }
-=======
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
@@ -21,7 +10,6 @@
     "a  ",
     "a  ",
     "   "
->>>>>>> Stashed changes
   ],
   "result": {
     "count": 16,

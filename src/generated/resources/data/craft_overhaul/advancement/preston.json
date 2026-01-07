@@ -1,11 +1,11 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "has_redstone": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:crafting_table"
+            "items": "minecraft:redstone"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.preston.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:crafting_table"
+      "id": "minecraft:redstone"
     },
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.preston.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "has_redstone"
     ]
   ],
   "sends_telemetry_event": true

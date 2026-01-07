@@ -1,11 +1,11 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "threw_diamond": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:crafting_table"
+            "items": "minecraft:diamond"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.diamante_para_ti.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:crafting_table"
+      "id": "minecraft:diamond"
     },
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.diamante_para_ti.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "threw_diamond"
     ]
   ],
   "sends_telemetry_event": true

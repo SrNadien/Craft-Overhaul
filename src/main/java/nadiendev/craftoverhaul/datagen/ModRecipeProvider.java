@@ -181,18 +181,14 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "saddle_from_leather_and_iron"));
 
         // Lingote de netherite
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHERITE_INGOT, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHERITE_BLOCK, 4)
             .pattern("aaa")
             .pattern("abb")
             .pattern("bb ")
             .define('a', Items.GOLD_BLOCK)
             .define('b', Items.NETHERITE_SCRAP)
             .unlockedBy("has_netherite_scrap", has(Items.NETHERITE_SCRAP))
-<<<<<<< Updated upstream
-            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "netherite_ingot_from_scrap_and_gold"));
-=======
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "netherite_block_recipeuwu"));
->>>>>>> Stashed changes
 
         // Mejora de herrería de netherita
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, 4)
@@ -293,26 +289,6 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_string", has(Items.STRING))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "cobweb_from_string"));
 
-<<<<<<< Updated upstream
-        // Palos desde troncos
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 16)
-            .requires(ItemTags.LOGS)
-            .requires(ItemTags.LOGS)
-            .unlockedBy("has_logs", has(ItemTags.LOGS))
-            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "stick_from_logs"));
-
-        // Hilo desde lana
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 4)
-            .requires(ItemTags.WOOL)
-            .unlockedBy("has_wool", has(ItemTags.WOOL))
-            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_wool"));
-
-        // Hilo desde telaraña
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 9)
-            .requires(Items.COBWEB)
-            .unlockedBy("has_cobweb", has(Items.COBWEB))
-            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_cobweb"));
-=======
        // Palos desde troncos
 ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICK, 16)
     .pattern("a  ")
@@ -330,7 +306,6 @@ ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STRING, 16)
     .define('a', ItemTags.WOOL)
     .unlockedBy("has_wool", has(ItemTags.WOOL))
     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_wool"));
->>>>>>> Stashed changes
 
       // Hilo desde telaraña
      ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STRING, 9)
@@ -357,8 +332,6 @@ ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STRING, 16)
             .define('b', Items.NETHERITE_SCRAP)
             .unlockedBy("has_netherite_scrap", has(Items.NETHERITE_SCRAP))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "heavy_core"));
-<<<<<<< Updated upstream
-=======
         // campana crafteable 
          ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BELL, 1)
          .pattern("ccc")
@@ -396,6 +369,5 @@ ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TOTEM_OF_UNDYING, 1)
     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "totem_of_undying_recipe"));
         
     
->>>>>>> Stashed changes
     }
 }
