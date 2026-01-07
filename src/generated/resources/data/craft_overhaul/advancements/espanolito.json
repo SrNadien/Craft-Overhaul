@@ -1,12 +1,12 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "has_gold_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:crafting_table"
+              "minecraft:gold_ingot"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.espanolito.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:crafting_table"
+      "item": "minecraft:gold_ingot"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.espanolito.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "has_gold_ingot"
     ]
   ],
   "sends_telemetry_event": true

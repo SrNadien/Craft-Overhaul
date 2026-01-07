@@ -1,12 +1,12 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "has_lapis": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:crafting_table"
+              "minecraft:lapis_lazuli"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.peluche.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:crafting_table"
+      "item": "minecraft:lapis_lazuli"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.peluche.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "has_lapis"
     ]
   ],
   "sends_telemetry_event": true

@@ -1,4 +1,20 @@
 {
-  "advancements.trabajo.title": "A Laburar -_-",
-  "advancements.trabajo.descr": "Labura We"
+  "advancement.craftoverhaul.a_laburar.title": "A Laburar -_-",
+  "advancement.craftoverhaul.a_laburar.description": "Labura We",
+  "advancement.craftoverhaul.diamante_para_ti.title": "Diamante para ti",
+  "advancement.craftoverhaul.diamante_para_ti.description": "Tírale un diamante a otro jugador",
+  "advancement.craftoverhaul.six_seven.title": "Six Seven",
+  "advancement.craftoverhaul.six_seven.description": "six seven six seven",
+  "advancement.craftoverhaul.alto_asado.title": "Alto asado",
+  "advancement.craftoverhaul.alto_asado.description": "Craftea una hoguera",
+  "advancement.craftoverhaul.alto_guiso.title": "Alto guiso",
+  "advancement.craftoverhaul.alto_guiso.description": "Craftea una horno",
+  "advancement.craftoverhaul.peluche.title": "Peluche",
+  "advancement.craftoverhaul.peluche.description": "Consigue lapislázuli",
+  "advancement.craftoverhaul.esmarelda.title": "Esmarelda",
+  "advancement.craftoverhaul.esmarelda.description": "Consigue esmeraldas",
+  "advancement.craftoverhaul.preston.title": "Preston",
+  "advancement.craftoverhaul.preston.description": "Consigue redstone",
+  "advancement.craftoverhaul.espanolito.title": "Oro españolito",
+  "advancement.craftoverhaul.espanolito.description": "Consigue lingotes de oro"
 }

@@ -1,12 +1,12 @@
 {
   "parent": "craft_overhaul:six_seven",
   "criteria": {
-    "has_crafting_table": {
+    "has_campfire": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:crafting_table"
+              "minecraft:campfire"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.craftoverhaul.a_laburar.description"
+      "translate": "advancement.craftoverhaul.alto_asado.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:crafting_table"
+      "item": "minecraft:campfire"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.craftoverhaul.a_laburar.title"
+      "translate": "advancement.craftoverhaul.alto_asado.title"
     }
   },
   "requirements": [
     [
-      "has_crafting_table"
+      "has_campfire"
     ]
   ],
   "sends_telemetry_event": true
