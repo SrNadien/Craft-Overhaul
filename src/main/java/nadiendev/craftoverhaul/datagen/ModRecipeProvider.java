@@ -8,6 +8,9 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import com.google.gson.JsonObject;
 
 import java.util.function.Consumer;
@@ -373,6 +376,16 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('c', Items.GOLD_BLOCK)
             .unlockedBy("has_emerald", has(Items.EMERALD))
             .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "totem_of_undying_recipe"));
+        
+    //name tag crafteable 
+ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NAME_TAG, 1)
+    .pattern("  a")
+    .pattern(" a ")
+    .pattern("b  ")
+    .define('a', TagKey.create(Registries.ITEM, new ResourceLocation("forge", "nuggets"))) 
+    .define('b', Items.PAPER)
+    .unlockedBy("has_paper", has(Items.PAPER))
+    .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "name_tag"));
 
-    }
+  }
 }

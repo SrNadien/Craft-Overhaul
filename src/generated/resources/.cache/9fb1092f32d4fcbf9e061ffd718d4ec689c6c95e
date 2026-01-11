@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-06T14:44:08.1747329	Recipes
+// 1.20.1	2026-01-11T15:24:13.0763191	Recipes
 4da2fc623d9362c601c5940df49057ea3fc39cb1 data/craft_overhaul/recipes/bell_recipe.json
 e2cf3b1c886416c790c350d918efe4161815548e data/craft_overhaul/recipes/blaze_powder_from_blaze_rod.json
 8c599097c64b04624cb38455d3bcb16beb713d12 data/craft_overhaul/recipes/blaze_powder_from_eye_of_ender.json
@@ -23,6 +23,7 @@ b23b293114c8700fbca9faebbf1382b253242b44 data/craft_overhaul/recipes/leather_fro
 3975d519840075350e4927e08a16c20ae2668a98 data/craft_overhaul/recipes/leather_from_rotten_flesh_smoking.json
 631d887113476b01f381b2357ea4985305ccdc72 data/craft_overhaul/recipes/magnetite_balanced.json
 b9fcfa36fa9c0c4742abc0a06a9bf78b197360ad data/craft_overhaul/recipes/mob_spawner_from_nether_star_and_chain.json
+e6a1bf0714f1f5a382b43ac9a82436c6ed5e4c67 data/craft_overhaul/recipes/name_tag.json
 299848f50cefbe3fe2cbaafd26e401acbb9e96ed data/craft_overhaul/recipes/netherite_block_from_scrap_and_gold.json
 f5812f281fbe01ef7b87aac4ea09612b1b585a70 data/craft_overhaul/recipes/saddle_from_leather_and_iron.json
 1a7bd10535b29ad8f434e3432e1af0e3a3ddd312 data/craft_overhaul/recipes/smithing_netherite_upgrade.json
