@@ -9,6 +9,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.conditions.ICondition;
 
 import java.util.concurrent.CompletableFuture;
@@ -367,7 +370,17 @@ ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TOTEM_OF_UNDYING, 1)
     .define('c', Items.GOLD_BLOCK)
     .unlockedBy("has_emerald", has(Items.EMERALD))
     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "totem_of_undying_recipe"));
-        
+
+
+    //name tag crafteable
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NAME_TAG, 4)
+            .pattern("   ")
+            .pattern(" a ")
+            .pattern("b  ")
+            .define('a', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "nuggets")))
+            .define('b', Items.PAPER)
+            .unlockedBy("has_paper", has(Items.PAPER))
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "name_tag"));
     
     }
 }
