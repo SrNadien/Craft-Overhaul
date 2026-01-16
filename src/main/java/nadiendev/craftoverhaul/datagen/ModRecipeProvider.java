@@ -356,7 +356,7 @@ ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.CRYING_OBSIDIAN
     .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET))
     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "crying_obsidian_recipe"));
 
-// totem de inmortalidad crafteable
+// totem de inmortalidad crafteable.
 // patron de receta para que la extendion de visual studio code la autocomple con tabulador
 //   [aba] a: esmeralda c:bloque de oro b:lingote de oro
 //   [bcb]
