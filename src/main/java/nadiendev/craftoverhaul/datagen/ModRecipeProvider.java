@@ -76,7 +76,7 @@ public class ModRecipeProvider extends RecipeProvider {
         )
         .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
         .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "leather_from_rotten_flesh_smelting"));
-
+        
         // Cuero desde carne podrida (alto horno)
         SimpleCookingRecipeBuilder.blasting(
             Ingredient.of(Items.ROTTEN_FLESH),
@@ -356,7 +356,7 @@ ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.CRYING_OBSIDIAN
     .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET))
     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "crying_obsidian_recipe"));
 
-// totem de inmortalidad crafteable.
+// totem de inmortalidad crafteable
 // patron de receta para que la extendion de visual studio code la autocomple con tabulador
 //   [aba] a: esmeralda c:bloque de oro b:lingote de oro
 //   [bcb]
@@ -382,5 +382,38 @@ ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TOTEM_OF_UNDYING, 1)
             .unlockedBy("has_paper", has(Items.PAPER))
             .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "name_tag"));
     
+     //trial key craft
+     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TRIAL_KEY, 2)
+            .pattern("aaa")
+            .pattern("bcb")
+            .pattern("bbb")
+            .define('a', Items.POLISHED_TUFF)
+            .define('b', Items.COPPER_BLOCK)
+            .define('c', Items.TOTEM_OF_UNDYING)
+            .unlockedBy("has_totem_of_undying", has(Items.TOTEM_OF_UNDYING))
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "trial_key"));
+
+    // aminous trial key craft
+     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.OMINOUS_TRIAL_KEY, 2)
+            .pattern("aaa")
+            .pattern("bcb")
+            .pattern("bbb")
+            .define('a', Items.POLISHED_TUFF)
+            .define('b', Items.OXIDIZED_COPPER)
+            .define('c', Items.TOTEM_OF_UNDYING)
+            .unlockedBy("has_totem_of_undying", has(Items.TOTEM_OF_UNDYING))
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "ominous_trial_key"));
+
+    //nether star craft
+     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHER_STAR, 1)
+            .pattern("aaa")
+            .pattern("bbb")
+            .pattern(" b ")
+            .define('a', Items.WITHER_SKELETON_SKULL)
+            .define('b', Items.SOUL_SAND)
+            .unlockedBy("has_wither_skeleton_skull", has(Items.WITHER_SKELETON_SKULL))
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CraftOverhaulMod.MODID, "nether_star_recipe_uwu"));
+
+
     }
 }
