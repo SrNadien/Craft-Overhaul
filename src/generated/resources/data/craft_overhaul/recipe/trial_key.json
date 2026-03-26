@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "a": {
-      "item": "minecraft:polished_tuff"
-    },
-    "b": {
-      "item": "minecraft:copper_block"
-    },
-    "c": {
-      "item": "minecraft:totem_of_undying"
-    }
+    "a": "minecraft:polished_tuff",
+    "b": "minecraft:copper_block",
+    "c": "minecraft:totem_of_undying"
   },
   "pattern": [
     "aaa",

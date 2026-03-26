@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "a": {
-      "item": "minecraft:chain"
-    },
-    "b": {
-      "item": "minecraft:nether_star"
-    },
-    "c": {
-      "item": "minecraft:netherite_block"
-    }
+    "a": "minecraft:iron_chain",
+    "b": "minecraft:nether_star",
+    "c": "minecraft:netherite_block"
   },
   "pattern": [
     "aba",

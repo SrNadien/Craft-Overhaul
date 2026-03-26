@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "a": {
-      "item": "minecraft:lime_carpet"
-    },
-    "b": {
-      "tag": "minecraft:planks"
-    }
+    "a": "minecraft:lime_carpet",
+    "b": "#minecraft:planks"
   },
   "pattern": [
     "aaa",

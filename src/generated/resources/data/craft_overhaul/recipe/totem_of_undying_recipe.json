@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "a": {
-      "item": "minecraft:emerald"
-    },
-    "b": {
-      "item": "minecraft:gold_ingot"
-    },
-    "c": {
-      "item": "minecraft:gold_block"
-    }
+    "a": "minecraft:emerald",
+    "b": "minecraft:gold_ingot",
+    "c": "minecraft:gold_block"
   },
   "pattern": [
     "aba",

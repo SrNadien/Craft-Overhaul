@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "a": {
-      "item": "minecraft:nether_brick"
-    },
-    "b": {
-      "item": "minecraft:ender_eye"
-    },
-    "c": {
-      "item": "minecraft:diamond"
-    }
+    "a": "minecraft:nether_brick",
+    "b": "minecraft:ender_eye",
+    "c": "minecraft:diamond"
   },
   "pattern": [
     "aba",

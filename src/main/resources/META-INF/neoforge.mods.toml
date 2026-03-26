@@ -1,5 +1,4 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
 license="${mod_license}"
 issueTrackerURL="${issue_tracker}"
 
@@ -26,6 +25,13 @@ Con Este Mod Puedes tener recetas Faltentes O Eliminadas De Minecraft
 [[dependencies.${mod_id}]]
     modId="minecraft"
     type="required"
-    versionRange="${minecraft_version_range}"
+    versionRange="${minecraft_version}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="jei"
+    type="optional"
+    versionRange="${jei_version}"
     ordering="NONE"
     side="BOTH"

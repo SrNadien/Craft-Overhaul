@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:ink_sac"
-    },
-    {
-      "item": "minecraft:red_dye"
-    },
-    {
-      "item": "minecraft:yellow_dye"
-    }
+    "minecraft:ink_sac",
+    "minecraft:red_dye",
+    "minecraft:yellow_dye"
   ],
   "result": {
     "count": 3,

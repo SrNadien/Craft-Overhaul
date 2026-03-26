@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "a": {
-      "item": "minecraft:diamond"
-    },
-    "b": {
-      "item": "minecraft:string"
-    },
-    "c": {
-      "item": "minecraft:phantom_membrane"
-    },
-    "d": {
-      "item": "minecraft:nether_star"
-    },
-    "e": {
-      "item": "minecraft:diamond_block"
-    }
+    "a": "minecraft:diamond",
+    "b": "minecraft:string",
+    "c": "minecraft:phantom_membrane",
+    "d": "minecraft:nether_star",
+    "e": "minecraft:diamond_block"
   },
   "pattern": [
     "aba",

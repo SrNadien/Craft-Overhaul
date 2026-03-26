@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "a": {
-      "item": "minecraft:obsidian"
-    },
-    "b": {
-      "item": "minecraft:netherite_scrap"
-    }
+    "a": "minecraft:obsidian",
+    "b": "minecraft:netherite_scrap"
   },
   "pattern": [
     "aaa",
