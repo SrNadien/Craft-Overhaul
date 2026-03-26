@@ -29,9 +29,3 @@ Con Este Mod Puedes tener recetas Faltentes O Eliminadas De Minecraft
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.${mod_id}]]
-    modId="jei"
-    type="optional"
-    versionRange="${jei_version}"
-    ordering="NONE"
-    side="BOTH"

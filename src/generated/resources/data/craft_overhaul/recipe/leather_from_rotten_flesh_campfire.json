@@ -5,7 +5,6 @@
   "experience": 1.0,
   "ingredient": "minecraft:rotten_flesh",
   "result": {
-    "count": 1,
     "id": "minecraft:leather"
   }
 }

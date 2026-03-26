@@ -21,7 +21,7 @@ base {
 }
 
 // Mojang ships Java 21 to end users in 1.21.11, so mods should target Java 21.
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 //minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
 //minecraft.accessTransformers.entry public net.minecraft.client.Minecraft textureManager # textureManager
@@ -127,9 +127,9 @@ dependencies {
      implementation "net.neoforged:neoforge:${neo_version}"
 
     //jei
-    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    // compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    // compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    // runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
 
 }
 
@@ -147,7 +147,7 @@ tasks.withType(ProcessResources).configureEach {
             mod_version            : mod_version,
             authors                : authors,
             issue_tracker          : issue_tracker,
-            jei_version: jei_version,
+            // jei_version: jei_version,
     ]
     inputs.properties replaceProperties
 
@@ -173,7 +173,9 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
-
+tasks.named('build') {
+    dependsOn jar
+}
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
 idea {
     module {

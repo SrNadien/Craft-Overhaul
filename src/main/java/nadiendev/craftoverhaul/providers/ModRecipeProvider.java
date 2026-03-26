@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.neoforged.neoforge.common.conditions.ICondition;
 
 import java.util.concurrent.CompletableFuture;
@@ -45,32 +46,39 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_blaze_rod", has(Items.BLAZE_ROD))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "blaze_powder_from_blaze_rod")));
 
-        // ==========================================
+         // ==========================================
         // RECETAS DE HORNO
-        // ==========================================
-
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, Items.LEATHER, 1.0f, 200)
+       // ==========================================
+ 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, CookingBookCategory.MISC, Items.LEATHER, 1.0f, 200)
             .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "leather_from_rotten_flesh_smelting")));
-
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, Items.LEATHER, 1.0f, 100)
+ 
+         // ==========================================
+        // RECETAS DE ALTO HORNO
+       // ==========================================
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, CookingBookCategory.MISC, Items.LEATHER, 1.0f, 100)
             .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "leather_from_rotten_flesh_blasting")));
+ 
 
+           // ==========================================
+          // RECETAS DEL AHUMADOR
+         // ==========================================
+        // -- SMOKING (ahumador) --
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, Items.LEATHER, 1.0f, 100)
             .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "leather_from_rotten_flesh_smoking")));
-
+ 
+           // ==========================================
+          // RECETAS DE LA HOGUERA
+         // ==========================================
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, Items.LEATHER, 1.0f, 600)
             .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "leather_from_rotten_flesh_campfire")));
-
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ENDER_EYE), RecipeCategory.MISC, Items.ENDER_PEARL, 0.5f, 200)
-            .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
-            .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "ender_pearl_from_eye_of_ender_smelting")));
-
+ 
         // ==========================================
-        // RECETAS CRAFTEABLES ESPECIALES
+        // RECETAS SHAPED
         // ==========================================
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.TOOLS, Items.ELYTRA, 1)
@@ -125,7 +133,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "smithing_netherite_upgrade")));
 
         // ==========================================
-        // ARMADURA DE COTA DE MALLA
+        // ARMADURA DE COTA DE MALLA SHAPED
         // ==========================================
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.COMBAT, Items.CHAINMAIL_HELMET, 1)
