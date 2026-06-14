@@ -35,7 +35,7 @@ public class ModAdvancementsProvider extends AdvancementProvider {
                     .display(Items.BEDROCK,
                             Component.translatable("advancement.craftoverhaul.six_seven.title"),
                             Component.translatable("advancement.craftoverhaul.six_seven.description"),
-                            Identifier.parse("minecraft:textures/gui/advancements/backgrounds/stone.png"),
+                            Identifier.parse("minecraft:gui/advancements/backgrounds/stone"),
                             AdvancementType.TASK, true, true, false)
                     .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
                     .save(saver, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "six_seven"));
