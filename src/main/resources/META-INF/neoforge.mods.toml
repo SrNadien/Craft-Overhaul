@@ -18,14 +18,14 @@ Con Este Mod Puedes tener recetas Faltentes O Eliminadas De Minecraft
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
-    versionRange="[${neo_version},)"
+    versionRange="${neoforgeVersionRange}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="minecraft"
     type="required"
-    versionRange="${minecraft_version}"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 

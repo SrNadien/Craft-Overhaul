@@ -5,8 +5,8 @@ import nadiendev.craftoverhaul.CraftOverhaulMod;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.advancements.criterion.PlayerTrigger;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger;
+import net.minecraft.advancements.triggers.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
@@ -35,7 +35,7 @@ public class ModAdvancementsProvider extends AdvancementProvider {
                     .display(Items.BEDROCK,
                             Component.translatable("advancement.craftoverhaul.six_seven.title"),
                             Component.translatable("advancement.craftoverhaul.six_seven.description"),
-                            Identifier.parse("minecraft:gui/advancements/backgrounds/stone"),
+                            Identifier.parse("minecraft:textures/gui/advancements/backgrounds/stone.png"),
                             AdvancementType.TASK, true, true, false)
                     .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
                     .save(saver, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "six_seven"));

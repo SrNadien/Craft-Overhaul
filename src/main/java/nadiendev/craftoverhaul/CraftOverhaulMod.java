@@ -15,12 +15,12 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.IEventBus;
 
-import net.minecraft.util.Tuple;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
@@ -82,22 +82,23 @@ public class CraftOverhaulMod {
     // SERVER TICK
     // ============================================
 
-    private static final Collection<Tuple<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
+    private record QueuedWork(Runnable action, AtomicInteger ticks) {}
+
+    private static final Collection<QueuedWork> workQueue = new ConcurrentLinkedQueue<>();
 
     public static void queueServerWork(int tick, Runnable action) {
         if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
-            workQueue.add(new Tuple<>(action, tick));
+            workQueue.add(new QueuedWork(action, new AtomicInteger(tick)));
     }
 
     @SubscribeEvent
     public void tick(ServerTickEvent.Post event) {
-        List<Tuple<Runnable, Integer>> actions = new ArrayList<>();
+        List<QueuedWork> actions = new ArrayList<>();
         workQueue.forEach(work -> {
-            work.setB(work.getB() - 1);
-            if (work.getB() == 0)
+            if (work.ticks().decrementAndGet() == 0)
                 actions.add(work);
         });
-        actions.forEach(e -> e.getA().run());
+        actions.forEach(work -> work.action().run());
         workQueue.removeAll(actions);
     }
 }

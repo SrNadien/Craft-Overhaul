@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -96,10 +97,10 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_nether_star", has(Items.NETHER_STAR))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "mob_spawner_from_nether_star_and_chain")));
 
-        ShapedRecipeBuilder.shaped(items, RecipeCategory.DECORATIONS, Items.LIME_BED, 1)
+        ShapedRecipeBuilder.shaped(items, RecipeCategory.DECORATIONS, Items.BED.pick(DyeColor.LIME), 1)
             .pattern("aaa").pattern("bbb")
-            .define('a', Items.LIME_CARPET).define('b', ItemTags.PLANKS)
-            .unlockedBy("has_carpet", has(Items.LIME_CARPET))
+            .define('a', Items.CARPET.pick(DyeColor.LIME)).define('b', ItemTags.PLANKS)
+            .unlockedBy("has_carpet", has(Items.CARPET.pick(DyeColor.LIME)))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "carpet_bed")));
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.DECORATIONS, Items.CHEST, 8)
@@ -209,8 +210,8 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "string_from_cobweb_shaped")));
 
         ShapelessRecipeBuilder.shapeless(items, RecipeCategory.MISC, Items.COCOA_BEANS, 3)
-            .requires(Items.INK_SAC).requires(Items.RED_DYE).requires(Items.YELLOW_DYE)
-            .unlockedBy("has_dye", has(Items.RED_DYE))
+            .requires(Items.INK_SAC).requires(Items.DYE.pick(DyeColor.RED)).requires(Items.DYE.pick(DyeColor.YELLOW))
+            .unlockedBy("has_dye", has(Items.DYE.pick(DyeColor.RED)))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "cocoa_beans_from_dyes")));
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.REDSTONE, Items.HEAVY_CORE, 1)
@@ -248,14 +249,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, Items.TRIAL_KEY, 2)
             .pattern("aaa").pattern("bcb").pattern("bbb")
-            .define('a', Items.POLISHED_TUFF).define('b', Items.COPPER_BLOCK)
+            .define('a', Items.POLISHED_TUFF).define('b', Items.COPPER_BLOCK.weathering().unaffected())
             .define('c', Items.TOTEM_OF_UNDYING)
             .unlockedBy("has_totem_of_undying", has(Items.TOTEM_OF_UNDYING))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "trial_key")));
 
         ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, Items.OMINOUS_TRIAL_KEY, 2)
             .pattern("aaa").pattern("bcb").pattern("bbb")
-            .define('a', Items.POLISHED_TUFF).define('b', Items.OXIDIZED_COPPER)
+            .define('a', Items.POLISHED_TUFF).define('b', Items.COPPER_BLOCK.weathering().oxidized())
             .define('c', Items.TOTEM_OF_UNDYING)
             .unlockedBy("has_totem_of_undying", has(Items.TOTEM_OF_UNDYING))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "ominous_trial_key")));
