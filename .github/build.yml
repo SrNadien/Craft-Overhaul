@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-      - "Neo/26.1.2"
+      - "Neo/1.21.11"
     paths:
       - "src/**/*.java"
 jobs:
@@ -50,7 +50,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.gradle_props.outputs.release_version }}
-          name: VoidMinersRemastered ${{ steps.gradle_props.outputs.release_version }}
+          name: CraftOverhaul ${{ steps.gradle_props.outputs.release_version }}
           generate_release_notes: true
           files: |
             build/libs/*.jar
