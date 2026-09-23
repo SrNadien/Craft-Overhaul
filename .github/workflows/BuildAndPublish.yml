@@ -8,6 +8,7 @@ on:
       - "src/**/*.java"
       - "gradle.properties"
       - "build.gradle"
+      - "BuildAndPublish.yml"
 jobs:
   build:
     runs-on: ubuntu-latest
