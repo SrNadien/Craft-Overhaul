@@ -2,12 +2,14 @@ package nadiendev.craftoverhaul.providers;
 
 import nadiendev.craftoverhaul.CraftOverhaulMod;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderOwner;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.MultiRegistryBootstrap;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
@@ -18,17 +20,40 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
-import net.neoforged.neoforge.common.conditions.ICondition;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class ModRecipeProvider extends RecipeProvider {
 
     private final HolderGetter<Item> items;
 
-    protected ModRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        super(registries, output);
-        this.items = registries.lookupOrThrow(Registries.ITEM);
+    protected ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, withoutRegistration(advancementOutput));
+        this.items = recipeOutput.lookup(Registries.ITEM);
+    }
+
+    public static MultiRegistryBootstrap create() {
+        return RecipeProvider.asBootstrap(ModRecipeProvider::new);
+    }
+
+    private static BootstrapContext<Advancement> withoutRegistration(BootstrapContext<Advancement> context) {
+        return new BootstrapContext<>() {
+            @Override
+            public Holder.Reference<Advancement> register(ResourceKey<Advancement> key, Advancement value) {
+                return Holder.Reference.createStandAlone(new HolderOwner<>() {}, key);
+            }
+
+            @Override
+            public <S> HolderGetter<S> lookup(ResourceKey<? extends Registry<? extends S>> key) {
+                return context.lookup(key);
+            }
+
+            @Deprecated
+            @Override
+            public <S> Stream<Holder.Reference<S>> listContextElements(ResourceKey<? extends Registry<? extends S>> key) {
+                return context.listContextElements(key);
+            }
+        };
     }
 
     @Override
@@ -266,40 +291,5 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('a', Items.WITHER_SKELETON_SKULL).define('b', Items.SOUL_SAND)
             .unlockedBy("has_wither_skeleton_skull", has(Items.WITHER_SKELETON_SKULL))
             .save(output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(CraftOverhaulMod.MODID, "nether_star_recipe_uwu")));
-    }
-
-    public static class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-            super(output, registries);
-        }
-
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-            RecipeOutput noAdvancementOutput = new RecipeOutput() {
-                @Override
-                public void accept(ResourceKey<Recipe<?>> id, Recipe<?> recipe, AdvancementHolder advancement) {
-                    output.accept(id, recipe, null);
-                }
-
-                @Override
-                public Advancement.Builder advancement() {
-                    return output.advancement();
-                }
-
-                @Override
-                public void accept(ResourceKey<Recipe<?>> id, Recipe<?> recipe, AdvancementHolder advancement, ICondition... conditions) {
-                    output.accept(id, recipe, null, conditions);
-                }
-
-                @Override
-                public void includeRootAdvancement() {}
-            };
-            return new ModRecipeProvider(registries, noAdvancementOutput);
-        }
-
-        @Override
-        public String getName() {
-            return "CraftOverhaul Recipes";
-        }
     }
 }
